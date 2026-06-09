@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000423">
     <link rel="stylesheet" href="style.css">
     <title>Chaos Ball</title>
 </head>
 <body>
 
-    <!-- Nav is now outside the hero, at the top level -->
     <nav class="navcntr">
-        <a class="link" href="#dwnlod">Download</a>
-        <a class="link" href="https://github.com/pavswap/Chaos-Ball/releases" target="_blank">Releases</a>
-        <a class="link" href="https://github.com/pavswap/Chaos-Ball" target="_blank">Github</a>
-        <a class="link" href="#contri">Contributers</a>
+        <a class="nav-brand" href="#" aria-label="Chaos Ball home">
+            <img src="Resources/GameImage.png" alt="Chaos Ball logo">
+            <span class="brand-text">Chaos Ball</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a class="link" href="#dwnlod">Download</a>
+            <a class="link" href="https://github.com/pavswap/Chaos-Ball/releases" target="_blank">Releases</a>
+            <a class="link" href="https://github.com/pavswap/Chaos-Ball" target="_blank">Github</a>
+            <a class="link" href="#contri">Contributors</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <header class="hero-header">
@@ -23,20 +34,21 @@
         <div class="video-overlay"></div>
         <div class="header-content">
             <h1 class="head_h1">Chaos Ball</h1>
+            <p class="hero-tagline">A physics-bending platformer built for chaotic fun</p>
             <a class="download" href="#dwnlod">DOWNLOAD</a>
         </div>
     </header>
 
     <main>
-        <section class="About">
+        <section class="About reveal">
             <h1>About the Game</h1>
-            <p>Chaos ball is a red ball inspired platformer game, it was developed by a group of 4 developers at GITAM university
+            <p>Chaos Ball is a red ball inspired platformer game, developed by a group of 4 developers at GITAM University
                 for the Shore Fest'26 Vibe Coding Hackathon. Chaos Ball has a special mechanic that fundamentally changes the physics 
-                upon losing, bringing new challenges for players. The game was made with assistance with Claude AI. 
+                upon losing, bringing new challenges for players. The game was made with assistance with Claude AI.
             </p>
         </section>
 
-        <section id="dwnlod" class="Main-download">
+        <section id="dwnlod" class="Main-download reveal">
             <h1>Download Chaos Ball</h1>
             <p>Chaos Ball is available for Windows, Mac and Android</p>
 
@@ -53,42 +65,67 @@
             </div>
         </section>
 
-        <section id="contri" class="contributers">
-            <h1>Contributers</h1>
+        <section id="contri" class="contributers reveal">
+            <h1>Contributors</h1>
 
             <div class="contributers-tray">
                 <div class="ct kd">
-                    <h1>Kushal Dhooth</h1>
-                    <a href="https://github.com/kd-kushaldhoot" target="_blank">GitHub</a>
-                    <a href="https://kd-kushaldhoot.github.io/potfolio/" target="_blank">Portfolio</a>
-                    <a href="https://www.linkedin.com/in/kushal-dhoot-07dec" target="_blank">LinkedIn</a>
+                    <h1>Kushal Dhoot</h1>
+                    <a class="github-link" href="https://github.com/kd-kushaldhoot" target="_blank">GitHub</a>
+                    <a class="portfolio-link" href="https://kd-kushaldhoot.github.io/potfolio/" target="_blank">Portfolio</a>
+                    <a class="linkedin-link" href="https://www.linkedin.com/in/kushal-dhoot-07dec" target="_blank">LinkedIn</a>
                 </div>
                 <div class="ct ps">
                     <h1>Paavan Swaroop</h1>
-                    <a href="https://github.com/pavswap" target="_blank">GitHub</a>
-                    <a href="https://pavswap.github.io/Portfolio/" target="_blank">Portfolio</a>
-                    <a href="https://www.linkedin.com/in/paavan-swaroop-330b13256" target="_blank">LinkedIn</a>
+                    <a class="github-link" href="https://github.com/pavswap" target="_blank">GitHub</a>
+                    <a class="portfolio-link" href="https://pavswap.github.io/Portfolio/" target="_blank">Portfolio</a>
+                    <a class="linkedin-link" href="https://www.linkedin.com/in/paavan-swaroop-330b13256" target="_blank">LinkedIn</a>
                 </div>
                 <div class="ct ay">
                     <h1>Ayush Mishra</h1>
-                    <a href="https://github.com/ayuuuvauuu" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/ayush-mishra-9b73a3215" target="_blank">LinkedIn</a>
+                    <a class="github-link" href="https://github.com/ayuuuvauuu" target="_blank">GitHub</a>
+                    <a class="linkedin-link" href="https://www.linkedin.com/in/ayush-mishra-9b73a3215" target="_blank">LinkedIn</a>
                 </div>
                 <div class="ct pt">
                     <h1>Pratyush R Naik</h1>
-                    <a href="" target="_blank">GitHub</a>
-                    <a href="" target="_blank">LinkedIn</a>
+                    <a class="github-link" href="" target="_blank">GitHub</a>
+                    <a class="linkedin-link" href="" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer>
-        <h1>Chaos Ball is an Open-Source Project, we apprecitate collaborations. Check out our projects.</h1>
+    <footer class="reveal">
+        <h1>Chaos Ball is an Open-Source Project, we appreciate collaborations. Check out our projects.</h1>
         <div class="footerList">
             <a class="fl Github" href="https://github.com/pavswap/WebPageForChaosBall" target="_blank">Github</a>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks  = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when any nav link is tapped
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.querySelectorAll('.reveal').forEach((element) => {
+            element.classList.add('visible');
+        });
+    </script>
+
 </body>
 </html>
